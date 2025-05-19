@@ -1,3 +1,8 @@
+
+import java.awt.Image;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
@@ -8,14 +13,11 @@
  * @author Muhammad Dzaky
  */
 public class TebakGambarJFrame extends javax.swing.JFrame {
-
-    /**
-     * Creates new form TebakGambarJFrame
-     */
-    public TebakGambarJFrame() {
+        private Game game;
+        
+        public TebakGambarJFrame() {
         initComponents();
     }
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -36,10 +38,21 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+
         Answer.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        Answer.setText("Jawab");
+        Answer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AnswerActionPerformed(evt);
+            }
+        });
 
         Submit.setText("Submit");
+        Submit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                SubmitActionPerformed(evt);
+            }
+        });
 
         NextQuestion.setText("Next");
         NextQuestion.addActionListener(new java.awt.event.ActionListener() {
@@ -49,6 +62,11 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
         });
 
         BackToHome.setText("Home");
+        BackToHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackToHomeActionPerformed(evt);
+            }
+        });
 
         ScorePlayer.setFont(new java.awt.Font("Showcard Gothic", 0, 12)); // NOI18N
         ScorePlayer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -61,7 +79,7 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
         ImagePanel.setLayout(ImagePanelLayout);
         ImagePanelLayout.setHorizontalGroup(
             ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 353, Short.MAX_VALUE)
+            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         ImagePanelLayout.setVerticalGroup(
             ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -73,45 +91,43 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(ScorePlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
-                                .addGap(23, 23, 23)
-                                .addComponent(Answer, javax.swing.GroupLayout.PREFERRED_SIZE, 243, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Submit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(0, 17, Short.MAX_VALUE)
-                                .addComponent(ImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(122, 122, 122)
-                                .addComponent(BackToHome)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(NextQuestion)
-                                .addGap(0, 0, Short.MAX_VALUE)))
-                        .addGap(24, 24, 24))))
+                        .addGap(6, 6, 6)
+                        .addComponent(ScorePlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(128, 128, 128)
+                        .addComponent(BackToHome)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(NextQuestion)
+                        .addGap(0, 116, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(36, 36, 36)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(ImagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(Answer)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(Submit)))
+                .addGap(42, 42, 42))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(ScorePlayer)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(ImagePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(6, 6, 6)
+                .addComponent(ScorePlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(6, 6, 6)
+                .addComponent(ImagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Answer, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Submit))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                    .addComponent(Submit)
+                    .addComponent(Answer))
+                .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(BackToHome)
                     .addComponent(NextQuestion))
-                .addGap(18, 18, 18))
+                .addGap(15, 15, 15))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -129,8 +145,62 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void NextQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextQuestionActionPerformed
-        // TODO add your handling code here:
+        if (game != null) {
+            game.nextQuestion();
+            if (!game.isGameOver()) {
+                tampilkanSoal();
+            } else {
+                JOptionPane.showMessageDialog(this, "Permainan selesai!\nSkor akhir: " + game.getPlayer().getScore());
+                dispose();
+                new MainMenu().setVisible(true);
+            }
+        }
     }//GEN-LAST:event_NextQuestionActionPerformed
+
+    private void BackToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackToHomeActionPerformed
+        dispose();
+        new MainMenu().setVisible(true);
+    }//GEN-LAST:event_BackToHomeActionPerformed
+
+    private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
+        if (game != null) {
+            String jawaban = Answer.getText();
+            if (game.checkAnswer(jawaban)) {
+                JOptionPane.showMessageDialog(this, "Benar!");
+                game.getPlayer().incrementScore();
+            } else {
+                JOptionPane.showMessageDialog(this, "Salah! Jawaban: " + game.getCurrentQuestion().getAnswer());
+            }
+            tampilkanSoal();  // Refresh soal dan skor
+        }
+    }//GEN-LAST:event_SubmitActionPerformed
+
+    private void AnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnswerActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AnswerActionPerformed
+
+    private void tampilkanSoal() {
+            if (game != null && !game.isGameOver()) {
+            Question q = game.getCurrentQuestion();
+
+            // Untuk Gambar
+            String path = q.getImagePath(); // Misalnya: "src/assets/gambar/soal1.png"
+            ImageIcon icon = new ImageIcon(path);
+            Image img = icon.getImage().getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_SMOOTH);
+            jLabel2.setIcon(new ImageIcon(img));
+            jLabel2.setText(""); // Hapus teks "Gambar"
+
+            // Reset jawaban
+            Answer.setText("");
+            ScorePlayer.setText("Skor: " + game.getPlayer().getScore());
+        }
+    }
+    
+    public void setGame(Game game) {
+        this.game = game;
+        tampilkanSoal();  // setelah game di-set, langsung tampilkan soal pertama
+    }
+
 
     /**
      * @param args the command line arguments
