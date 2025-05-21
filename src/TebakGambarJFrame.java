@@ -149,6 +149,8 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
             game.nextQuestion();
             if (!game.isGameOver()) {
                 tampilkanSoal();
+                isAnsweredCorrectly = false;
+                NextQuestion.setEnabled(false);
             } else {
                 JOptionPane.showMessageDialog(this, "Permainan selesai!\nSkor akhir: " + game.getPlayer().getScore());
                 dispose();
