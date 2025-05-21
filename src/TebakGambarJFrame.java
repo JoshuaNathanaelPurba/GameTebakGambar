@@ -198,7 +198,6 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
             // Reset jawaban
             Answer.setText("");
             ScorePlayer.setText("Skor: " + game.getPlayer().getScore());
-
             if (isAnsweredCorrectly) {
                 NextQuestion.setEnabled(true); // Aktifkan tombol Next jika jawaban benar
             } else {
