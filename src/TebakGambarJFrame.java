@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class TebakGambarJFrame extends javax.swing.JFrame {
         private Game game;
+              private boolean isAnsweredCorrectly = false; 
         
         public TebakGambarJFrame() {
         initComponents();
