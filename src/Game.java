@@ -71,6 +71,7 @@ class QuestionBank {
     private java.util.List<Question> questions;
 
     public QuestionBank() {
+        questions = new java.util.ArrayList<>();
         questions.add(new Question("C:\\Users\\joshu\\Downloads\\WhatsApp Image 2025-05-21 at 21.36.26.jpeg", "radiasi matahari"));
         questions.add(new Question("C:\\Users\\joshu\\Downloads\\WhatsApp Image 2025-05-21 at 21.52.34.jpeg", "panjang umur"));
         questions.add(new Question("C:\\Users\\joshu\\Downloads\\WhatsApp Image 2025-05-21 at 21.54.57.jpeg", "keramik lantai"));
