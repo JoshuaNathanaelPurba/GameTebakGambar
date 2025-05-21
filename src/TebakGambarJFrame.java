@@ -169,7 +169,7 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Benar!");
                 game.getPlayer().incrementScore();
             } else {
-                JOptionPane.showMessageDialog(this, "Salah! Jawaban: " + game.getCurrentQuestion().getAnswer());
+                JOptionPane.showMessageDialog(this, "Jawaban salah. Coba lagi");
             }
             tampilkanSoal();  // Refresh soal dan skor
         }
@@ -193,6 +193,8 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
             // Reset jawaban
             Answer.setText("");
             ScorePlayer.setText("Skor: " + game.getPlayer().getScore());
+                NextQuestion.setEnabled(false);
+                isAnsweredCorrectly = false; // Reset status jawaban
         }
     }
     
