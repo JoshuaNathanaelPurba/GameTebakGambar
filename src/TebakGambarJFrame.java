@@ -168,6 +168,8 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
             if (game.checkAnswer(jawaban)) {
                 JOptionPane.showMessageDialog(this, "Benar!");
                 game.getPlayer().incrementScore();
+                                    isAnsweredCorrectly = true;
+                NextQuestion.setEnabled(true);
             } else {
                 JOptionPane.showMessageDialog(this, "Jawaban salah. Coba lagi");
             }
