@@ -194,6 +194,7 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
             Answer.setText("");
             ScorePlayer.setText("Skor: " + game.getPlayer().getScore());
                 NextQuestion.setEnabled(false);
+                    isAnsweredCorrectly = false;
         }
     }
     
