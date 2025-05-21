@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
  */
 public class TebakGambarJFrame extends javax.swing.JFrame {
         private Game game;
+              private boolean isAnsweredCorrectly = false; 
         
         public TebakGambarJFrame() {
         initComponents();
@@ -149,7 +150,7 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
             game.nextQuestion();
             if (!game.isGameOver()) {
                 tampilkanSoal();
-                isAnsweredCorrectly = false;
+                    isAnsweredCorrectly = false;
                 NextQuestion.setEnabled(false);
             } else {
                 JOptionPane.showMessageDialog(this, "Permainan selesai!\nSkor akhir: " + game.getPlayer().getScore());
@@ -170,8 +171,8 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
             if (game.checkAnswer(jawaban)) {
                 JOptionPane.showMessageDialog(this, "Benar!");
                 game.getPlayer().incrementScore();
-                isAnsweredCorrectly = true; // Set status jawaban benar
-                NextQuestion.setEnabled(true); // Aktifkan tombol Next
+                                    isAnsweredCorrectly = true;
+                NextQuestion.setEnabled(true);
             } else {
                 JOptionPane.showMessageDialog(this, "Jawaban salah. Coba lagi");
             }
@@ -197,8 +198,11 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
             // Reset jawaban
             Answer.setText("");
             ScorePlayer.setText("Skor: " + game.getPlayer().getScore());
-                NextQuestion.setEnabled(false);
-                isAnsweredCorrectly = false; // Reset status jawaban
+            if (isAnsweredCorrectly) {
+                NextQuestion.setEnabled(true); // Aktifkan tombol Next jika jawaban benar
+            } else {
+                NextQuestion.setEnabled(false); // Nonaktifkan tombol Next jika jawaban salah
+            }
         }
     }
     
