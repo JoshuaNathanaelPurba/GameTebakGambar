@@ -72,11 +72,11 @@ class QuestionBank {
 
     public QuestionBank() {
         questions = new java.util.ArrayList<>();
-        questions.add(new Question("C:\\Users\\joshu\\Downloads\\WhatsApp Image 2025-05-21 at 21.36.26.jpeg", "radiasi matahari"));
-        questions.add(new Question("C:\\Users\\joshu\\Downloads\\WhatsApp Image 2025-05-21 at 21.52.34.jpeg", "panjang umur"));
-        questions.add(new Question("C:\\Users\\joshu\\Downloads\\WhatsApp Image 2025-05-21 at 21.54.57.jpeg", "keramik lantai"));
-        questions.add(new Question("C:\\Users\\joshu\\Downloads\\WhatsApp Image 2025-05-21 at 21.57.23.jpeg", "meniti waktu"));
-        questions.add(new Question("C:\\Users\\joshu\\Downloads\\WhatsApp Image 2025-05-21 at 21.58.21.jpeg", "hitung persentase"));
+        questions.add(new Question("C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\GameTebakGambar\\src\\WhatsApp Image 2025-05-21 at 21.36.26.jpeg", "radiasi matahari"));
+        questions.add(new Question("C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\GameTebakGambar\\src\\WhatsApp Image 2025-05-21 at 21.52.34.jpeg", "panjang umur"));
+        questions.add(new Question("C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\GameTebakGambar\\src\\WhatsApp Image 2025-05-21 at 21.54.57.jpeg", "keramik lantai"));
+        questions.add(new Question("C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\GameTebakGambar\\src\\WhatsApp Image 2025-05-21 at 21.57.23.jpeg", "meniti waktu"));
+        questions.add(new Question("C:\\Users\\joshu\\OneDrive\\Documents\\GitHub\\GameTebakGambar\\src\\WhatsApp Image 2025-05-21 at 21.58.21.jpeg", "hitung persentase"));
     }
 
     public Question getQuestion(int index) {
