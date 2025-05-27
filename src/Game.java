@@ -72,11 +72,11 @@ class QuestionBank {
 
     public QuestionBank() {
         questions = new java.util.ArrayList<>();
-        questions.add(new Question("C:\\Users\\joshu\\Downloads\\WhatsApp Image 2025-05-21 at 21.36.26.jpeg", "radiasi matahari"));
-        questions.add(new Question("C:\\Users\\joshu\\Downloads\\WhatsApp Image 2025-05-21 at 21.52.34.jpeg", "panjang umur"));
-        questions.add(new Question("C:\\Users\\joshu\\Downloads\\WhatsApp Image 2025-05-21 at 21.54.57.jpeg", "keramik lantai"));
-        questions.add(new Question("C:\\Users\\joshu\\Downloads\\WhatsApp Image 2025-05-21 at 21.57.23.jpeg", "meniti waktu"));
-        questions.add(new Question("C:\\Users\\joshu\\Downloads\\WhatsApp Image 2025-05-21 at 21.58.21.jpeg", "hitung persentase"));
+        questions.add(new Question("src/Soal1.jpeg", "radiasi matahari"));
+        questions.add(new Question("src/Soal2.jpeg", "panjang umur"));
+        questions.add(new Question("src/Soal3.jpeg", "keramik lantai"));
+        questions.add(new Question("src/Soal4.jpeg", "meniti waktu"));
+        questions.add(new Question("src/Soal5.jpeg", "hitung persentase"));
     }
 
     public Question getQuestion(int index) {
