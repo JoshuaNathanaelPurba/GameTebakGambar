@@ -1,5 +1,9 @@
 
 import java.awt.Image;
+import java.awt.event.KeyEvent;
+import java.awt.image.BufferedImage;
+import java.io.*;
+import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
@@ -14,13 +18,15 @@ import javax.swing.JOptionPane;
  */
 public class TebakGambarJFrame extends javax.swing.JFrame {
         private Game game;
-              private boolean isAnsweredCorrectly = false; 
+        private boolean benar = false; 
         
         
                 
               
         public TebakGambarJFrame() {
         initComponents();
+        
+        bNext.setEnabled(false);
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -35,10 +41,10 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
         ImagePanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
         Answer = new javax.swing.JTextField();
-        Submit = new javax.swing.JButton();
-        NextQuestion = new javax.swing.JButton();
-        BackToHome = new javax.swing.JButton();
+        bSubmit = new javax.swing.JButton();
+        bSLevel = new javax.swing.JButton();
         ScorePlayer = new javax.swing.JLabel();
+        bNext = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,21 +57,14 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
         ImagePanel.setLayout(ImagePanelLayout);
         ImagePanelLayout.setHorizontalGroup(
             ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 322, Short.MAX_VALUE)
-            .addGroup(ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ImagePanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         ImagePanelLayout.setVerticalGroup(
             ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 203, Short.MAX_VALUE)
-            .addGroup(ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(ImagePanelLayout.createSequentialGroup()
-                    .addContainerGap()
-                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-                    .addContainerGap()))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, ImagePanelLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 231, Short.MAX_VALUE)
+                .addContainerGap())
         );
 
         Answer.setHorizontalAlignment(javax.swing.JTextField.CENTER);
@@ -74,74 +73,89 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
                 AnswerActionPerformed(evt);
             }
         });
-
-        Submit.setText("Submit");
-        Submit.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                SubmitActionPerformed(evt);
+        Answer.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                AnswerKeyPressed(evt);
             }
         });
 
-        NextQuestion.setText("Next");
-        NextQuestion.addActionListener(new java.awt.event.ActionListener() {
+        bSubmit.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/icons8-checked-checkbox-26.png"))); // NOI18N
+        bSubmit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                NextQuestionActionPerformed(evt);
+                bSubmitActionPerformed(evt);
+            }
+        });
+        bSubmit.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                bSubmitKeyPressed(evt);
             }
         });
 
-        BackToHome.setText("Home");
-        BackToHome.addActionListener(new java.awt.event.ActionListener() {
+        bSLevel.setBackground(new java.awt.Color(0, 0, 0));
+        bSLevel.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
+        bSLevel.setForeground(new java.awt.Color(255, 255, 255));
+        bSLevel.setText("Select Level");
+        bSLevel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BackToHomeActionPerformed(evt);
+                bSLevelActionPerformed(evt);
             }
         });
 
-        ScorePlayer.setFont(new java.awt.Font("Showcard Gothic", 0, 12)); // NOI18N
+        ScorePlayer.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 36)); // NOI18N
+        ScorePlayer.setForeground(new java.awt.Color(255, 255, 255));
         ScorePlayer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        ScorePlayer.setText("Skor");
+        ScorePlayer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/icons8-score-26.png"))); // NOI18N
+
+        bNext.setBackground(new java.awt.Color(0, 0, 0));
+        bNext.setFont(new java.awt.Font("Tw Cen MT Condensed", 0, 14)); // NOI18N
+        bNext.setForeground(new java.awt.Color(255, 255, 255));
+        bNext.setText("Next");
+        bNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bNextActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(ScorePlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(58, 58, 58)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(ScorePlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(128, 128, 128)
-                        .addComponent(BackToHome)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(NextQuestion)
-                        .addGap(0, 116, Short.MAX_VALUE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(ImagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(Answer)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(Submit)))
-                .addGap(42, 42, 42))
+                        .addComponent(Answer, javax.swing.GroupLayout.DEFAULT_SIZE, 324, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(bSubmit, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                .addGap(60, 60, 60))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(184, 184, 184)
+                .addComponent(bSLevel, javax.swing.GroupLayout.DEFAULT_SIZE, 100, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(bNext, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                .addGap(174, 174, 174))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(ScorePlayer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(6, 6, 6)
+                .addContainerGap()
+                .addComponent(ScorePlayer, javax.swing.GroupLayout.DEFAULT_SIZE, 41, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(ImagePanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(12, 12, 12)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Submit)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(bSubmit, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(Answer))
-                .addGap(46, 46, 46)
+                .addGap(54, 54, 54)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BackToHome)
-                    .addComponent(NextQuestion))
-                .addGap(15, 15, 15))
+                    .addComponent(bSLevel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(bNext, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(23, 23, 23))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -156,72 +170,116 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void NextQuestionActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_NextQuestionActionPerformed
-        if (game != null) {
-            game.nextQuestion();
-            if (!game.isGameOver()) {
-                tampilkanSoal();
-                    isAnsweredCorrectly = false;
-                NextQuestion.setEnabled(false);
-            } else {
-                JOptionPane.showMessageDialog(this, "Permainan selesai!\nSkor akhir: " + game.getPlayer().getScore());
-                dispose();
-                new MainMenu().setVisible(true);
-            }
-        }
-    }//GEN-LAST:event_NextQuestionActionPerformed
-
-    private void BackToHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackToHomeActionPerformed
+    private void bSLevelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSLevelActionPerformed
+        PageLevel page = new PageLevel();
+        page.setGame(game);
+        page.setVisible(true);
         dispose();
-        new MainMenu().setVisible(true);
-    }//GEN-LAST:event_BackToHomeActionPerformed
+    }//GEN-LAST:event_bSLevelActionPerformed
 
-    private void SubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SubmitActionPerformed
+    private void bSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bSubmitActionPerformed
         if (game != null) {
-            String jawaban = Answer.getText();
+            String jawaban = Answer.getText().trim();
+            if (jawaban.isEmpty()) {
+                JOptionPane.showMessageDialog(this, "Jawaban kamu kosong");
+                return;
+            }
+
             if (game.checkAnswer(jawaban)) {
-                JOptionPane.showMessageDialog(this, "Benar!");
-                game.getPlayer().incrementScore();
-                                    isAnsweredCorrectly = true;
-                NextQuestion.setEnabled(true);
+                int currentLevel = game.getCurrentLevel();
+                if (game.getPlayer().levelBeresCek(currentLevel)){
+                    JOptionPane.showMessageDialog(this, "Lanjut ke level berikutnya!");
+                } else {
+                    boolean tambahScore = game.getPlayer().incrementScore(currentLevel);
+                    if(tambahScore){
+                        JOptionPane.showMessageDialog(this, "Jawaban benar!!!");
+                    }
+                }
+                benar = true;
+                bNext.setEnabled(true);
+                bSubmit.setEnabled(false);
+                Answer.setEditable(false);
+                ScorePlayer.setText(" " + game.getPlayer().getScore());
+                
             } else {
                 JOptionPane.showMessageDialog(this, "Jawaban salah. Coba lagi");
+                benar = false;
+                bNext.setEnabled(false);
             }
-            tampilkanSoal();  // Refresh soal dan skor
         }
-    }//GEN-LAST:event_SubmitActionPerformed
+    }//GEN-LAST:event_bSubmitActionPerformed
 
     private void AnswerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AnswerActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_AnswerActionPerformed
 
+    private void bNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bNextActionPerformed
+        if(game != null && benar){
+            if(game.hasNextQuestion()){
+                game.nextQuestion();
+                benar = false;
+                bNext.setEnabled(false);
+                tampilkanSoal();
+            } 
+        }
+    }//GEN-LAST:event_bNextActionPerformed
+
+    private void bSubmitKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_bSubmitKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_bSubmitKeyPressed
+
+    private void AnswerKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_AnswerKeyPressed
+        
+    }//GEN-LAST:event_AnswerKeyPressed
+
     private void tampilkanSoal() {
-            if (game != null && !game.isGameOver()) {
+        if (game != null && !game.isGameOver()) {
             Question q = game.getCurrentQuestion();
-
-            // Untuk Gambar
-            String path = "gambar1.jpg"; // Misalnya: "src/assets/gambar/soal1.png"
-            ImageIcon icon = new ImageIcon(path);
-            Image img = icon.getImage().getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_SMOOTH);
-            jLabel2.setIcon(new ImageIcon(img));
-            jLabel2.setText(""); // Hapus teks "Gambar"
-
-            // Reset jawaban
-            Answer.setText("");
-            ScorePlayer.setText("Skor: " + game.getPlayer().getScore());
-            if (isAnsweredCorrectly) {
-                NextQuestion.setEnabled(true); // Aktifkan tombol Next jika jawaban benar
+            if(q != null){
+                loadAndDisplayImage(q.getImagePath());
+                Answer.setText("");
+                Answer.setEditable(true);
+                bSubmit.setEnabled(true);
+                benar = false;
+                ScorePlayer.setText(" " + game.getPlayer().getScore());
+                bNext.setEnabled(benar);
+                this.setTitle("Level " + game.getCurrentLevel());
             } else {
-                NextQuestion.setEnabled(false); // Nonaktifkan tombol Next jika jawaban salah
+                JOptionPane.showMessageDialog(this, "tidak ada soal yang tersedia");
             }
+        }
+    }
+    
+    private void loadAndDisplayImage(String imagePath){
+        try {
+            File imageFile = new File(imagePath);
+            if(!imageFile.exists()){
+                JOptionPane.showMessageDialog(this, "Gambar tidak ditemukan");
+                jLabel2.setText("Gambar tidak ada di File");
+                jLabel2.setIcon(null);
+                return;
+            }
+            
+            BufferedImage originalImage = ImageIO.read(imageFile); //untuk meload gambarnya
+            int lw = jLabel2.getWidth();
+            int lh = jLabel2.getHeight();
+            Image scaledImage = originalImage.getScaledInstance(lw, lh, Image.SCALE_SMOOTH);
+            jLabel2.setIcon(new ImageIcon(scaledImage));
+            jLabel2.setText("");
+            
+        } catch (Exception e){
+            JOptionPane.showMessageDialog(null, "Gambar gagal diload " + e.getMessage());
         }
     }
     
     public void setGame(Game game) {
         this.game = game;
-        tampilkanSoal();  // setelah game di-set, langsung tampilkan soal pertama
+        if (game != null){
+            tampilkanSoal(); 
+        } 
     }
     
 
@@ -262,11 +320,11 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField Answer;
-    private javax.swing.JButton BackToHome;
     private javax.swing.JPanel ImagePanel;
-    private javax.swing.JButton NextQuestion;
     private javax.swing.JLabel ScorePlayer;
-    private javax.swing.JButton Submit;
+    private javax.swing.JButton bNext;
+    private javax.swing.JButton bSLevel;
+    private javax.swing.JButton bSubmit;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

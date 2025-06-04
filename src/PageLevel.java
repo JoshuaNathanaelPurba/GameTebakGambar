@@ -9,9 +9,9 @@ public class PageLevel extends javax.swing.JFrame {
      * Creates new form PageLevel
      */
     private Game game;
-        public void setGame(Game game){
+    public void setGame(Game game){
         this.game = game;
-        }  
+    }  
     
     public PageLevel() {
         initComponents();
@@ -26,156 +26,334 @@ public class PageLevel extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
+        jDesktopPane2 = new javax.swing.JDesktopPane();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
+        lvlSatu = new javax.swing.JButton();
+        lvlDua = new javax.swing.JButton();
+        lvlTiga = new javax.swing.JButton();
+        lvlEmpat = new javax.swing.JButton();
+        lvlLima = new javax.swing.JButton();
+        lvlEnam = new javax.swing.JButton();
+        lvlLapan = new javax.swing.JButton();
+        lvlTujuh = new javax.swing.JButton();
+        lvlNine = new javax.swing.JButton();
+        lvlTen = new javax.swing.JButton();
+        bHome = new javax.swing.JButton();
+        pemisah = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+        jDesktopPane2.setBackground(new java.awt.Color(0, 102, 102));
 
-        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 48)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("LEVEL NIH");
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/icons8-minecraft-main-character-64.png"))); // NOI18N
+        jLabel2.setText("LEVEL    ");
 
-        jButton1.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        jButton1.setText("1");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        lvlSatu.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        lvlSatu.setText("1");
+        lvlSatu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                lvlSatuActionPerformed(evt);
             }
         });
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        jButton2.setText("2");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        lvlDua.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        lvlDua.setText("2");
+        lvlDua.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                lvlDuaActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        jButton3.setText("3");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        lvlTiga.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        lvlTiga.setText("3");
+        lvlTiga.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                lvlTigaActionPerformed(evt);
             }
         });
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        jButton4.setText("4");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        lvlEmpat.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        lvlEmpat.setText("4");
+        lvlEmpat.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                lvlEmpatActionPerformed(evt);
             }
         });
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 1, 10)); // NOI18N
-        jButton5.setText("5");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        lvlLima.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        lvlLima.setText("5");
+        lvlLima.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                lvlLimaActionPerformed(evt);
             }
         });
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(46, 46, 46)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+        lvlEnam.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        lvlEnam.setText("6");
+        lvlEnam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lvlEnamActionPerformed(evt);
+            }
+        });
+
+        lvlLapan.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        lvlLapan.setText("8");
+        lvlLapan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lvlLapanActionPerformed(evt);
+            }
+        });
+
+        lvlTujuh.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        lvlTujuh.setText("7");
+        lvlTujuh.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lvlTujuhActionPerformed(evt);
+            }
+        });
+
+        lvlNine.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        lvlNine.setText("9");
+        lvlNine.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lvlNineActionPerformed(evt);
+            }
+        });
+
+        lvlTen.setFont(new java.awt.Font("Tw Cen MT Condensed Extra Bold", 1, 18)); // NOI18N
+        lvlTen.setText("10");
+        lvlTen.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lvlTenActionPerformed(evt);
+            }
+        });
+
+        bHome.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/icons8-home-button-26.png"))); // NOI18N
+        bHome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bHomeActionPerformed(evt);
+            }
+        });
+
+        jLabel1.setFont(new java.awt.Font("Tw Cen MT Condensed", 1, 18)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("Coming soon");
+
+        jDesktopPane2.setLayer(jLabel2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(lvlSatu, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(lvlDua, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(lvlTiga, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(lvlEmpat, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(lvlLima, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(lvlEnam, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(lvlLapan, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(lvlTujuh, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(lvlNine, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(lvlTen, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(bHome, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(pemisah, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane2.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+
+        javax.swing.GroupLayout jDesktopPane2Layout = new javax.swing.GroupLayout(jDesktopPane2);
+        jDesktopPane2.setLayout(jDesktopPane2Layout);
+        jDesktopPane2Layout.setHorizontalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                        .addGap(294, 294, 294)
+                        .addComponent(pemisah, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane2Layout.createSequentialGroup()
+                .addGap(263, 263, 263)
+                .addComponent(bHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(262, 262, 262))
+            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                .addGap(53, 53, 53)
+                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lvlEnam, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lvlSatu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(30, 30, 30)
+                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lvlTujuh, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lvlDua, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(31, 31, 31)
+                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(lvlLapan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lvlTiga, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(34, 34, 34)
+                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lvlEmpat, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lvlNine, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lvlLima, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lvlTen, javax.swing.GroupLayout.PREFERRED_SIZE, 1, Short.MAX_VALUE))
+                .addGap(59, 59, 59))
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addComponent(jLabel2)
-                .addGap(40, 40, 40)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(234, Short.MAX_VALUE))
+        jDesktopPane2Layout.setVerticalGroup(
+            jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jDesktopPane2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(34, 34, 34)
+                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lvlSatu, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lvlDua)
+                    .addComponent(lvlLima)
+                    .addComponent(lvlTiga)
+                    .addComponent(lvlEmpat))
+                .addGap(36, 36, 36)
+                .addGroup(jDesktopPane2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lvlEnam, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lvlTujuh)
+                    .addComponent(lvlLapan)
+                    .addComponent(lvlNine)
+                    .addComponent(lvlTen))
+                .addGap(42, 42, 42)
+                .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(84, 84, 84)
+                .addComponent(bHome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(12, 12, 12)
+                .addComponent(pemisah)
+                .addGap(45, 45, 45))
         );
+
+        jDesktopPane2Layout.linkSize(javax.swing.SwingConstants.VERTICAL, new java.awt.Component[] {lvlDua, lvlEmpat, lvlEnam, lvlLapan, lvlLima, lvlNine, lvlSatu, lvlTen, lvlTiga, lvlTujuh});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jDesktopPane2)
+                .addContainerGap())
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jDesktopPane2)
+                .addContainerGap())
         );
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        Question[] questions = LEVELIMG.getQuestion(); 
-        Game game = new Game(questions );
-        
-        TebakGambarJFrame tebak = new TebakGambarJFrame();
-        tebak.setGame(game);
-        tebak.setVisible(true);
-        this.dispose();
-        
-        
-    }//GEN-LAST:event_jButton1ActionPerformed
+    private void lvlSatuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lvlSatuActionPerformed
+        if(game!=null){
+            game.setCurrentLevel(1);
+            TebakGambarJFrame gambar = new TebakGambarJFrame();
+            gambar.setGame(game);
+            gambar.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_lvlSatuActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        TebakGambarJFrame tebakan1 = new TebakGambarJFrame();
+    private void lvlDuaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lvlDuaActionPerformed
+        if(game!=null){
+            game.setCurrentLevel(2);
+            TebakGambarJFrame gambar = new TebakGambarJFrame();
+            gambar.setGame(game);
+            gambar.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_lvlDuaActionPerformed
 
-        tebakan1.setGame(game);
-        tebakan1.setVisible(true);
+    private void lvlTigaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lvlTigaActionPerformed
+        if(game!=null){
+            game.setCurrentLevel(3);
+            TebakGambarJFrame gambar = new TebakGambarJFrame();
+            gambar.setGame(game);
+            gambar.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_lvlTigaActionPerformed
 
-        this.dispose();
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void lvlEmpatActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lvlEmpatActionPerformed
+        if(game!=null){
+            game.setCurrentLevel(4);
+            TebakGambarJFrame gambar = new TebakGambarJFrame();
+            gambar.setGame(game);
+            gambar.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_lvlEmpatActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        TebakGambarJFrame tebakan1 = new TebakGambarJFrame();
+    private void lvlLimaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lvlLimaActionPerformed
+        if(game!=null){
+            game.setCurrentLevel(5);
+            TebakGambarJFrame gambar = new TebakGambarJFrame();
+            gambar.setGame(game);
+            gambar.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_lvlLimaActionPerformed
 
-        tebakan1.setGame(game);
-        tebakan1.setVisible(true);
+    private void bHomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bHomeActionPerformed
+        PlayMenu play = new PlayMenu();
+        play.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_bHomeActionPerformed
 
-        this.dispose();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    private void lvlEnamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lvlEnamActionPerformed
+        if(game!=null){
+            game.setCurrentLevel(6);
+            TebakGambarJFrame gambar = new TebakGambarJFrame();
+            gambar.setGame(game);
+            gambar.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_lvlEnamActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        TebakGambarJFrame tebakan1 = new TebakGambarJFrame();
+    private void lvlTujuhActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lvlTujuhActionPerformed
+        if(game!=null){
+            game.setCurrentLevel(7);
+            TebakGambarJFrame gambar = new TebakGambarJFrame();
+            gambar.setGame(game);
+            gambar.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_lvlTujuhActionPerformed
 
-        tebakan1.setGame(game);
-        tebakan1.setVisible(true);
+    private void lvlLapanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lvlLapanActionPerformed
+        if(game!=null){
+            game.setCurrentLevel(8);
+            TebakGambarJFrame gambar = new TebakGambarJFrame();
+            gambar.setGame(game);
+            gambar.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_lvlLapanActionPerformed
 
-        this.dispose();
-    }//GEN-LAST:event_jButton4ActionPerformed
+    private void lvlNineActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lvlNineActionPerformed
+        if(game!=null){
+            game.setCurrentLevel(9);
+            TebakGambarJFrame gambar = new TebakGambarJFrame();
+            gambar.setGame(game);
+            gambar.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_lvlNineActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        TebakGambarJFrame tebakan1 = new TebakGambarJFrame();
-
-        tebakan1.setGame(game);
-        tebakan1.setVisible(true);
-
-        this.dispose();
-    }//GEN-LAST:event_jButton5ActionPerformed
+    private void lvlTenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lvlTenActionPerformed
+        if(game!=null){
+            game.setCurrentLevel(10);
+            TebakGambarJFrame gambar = new TebakGambarJFrame();
+            gambar.setGame(game);
+            gambar.setVisible(true);
+            this.dispose();
+        }
+    }//GEN-LAST:event_lvlTenActionPerformed
 
     /**
      * @param args the command line arguments
@@ -213,12 +391,20 @@ public class PageLevel extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
+    private javax.swing.JButton bHome;
+    private javax.swing.JDesktopPane jDesktopPane2;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JButton lvlDua;
+    private javax.swing.JButton lvlEmpat;
+    private javax.swing.JButton lvlEnam;
+    private javax.swing.JButton lvlLapan;
+    private javax.swing.JButton lvlLima;
+    private javax.swing.JButton lvlNine;
+    private javax.swing.JButton lvlSatu;
+    private javax.swing.JButton lvlTen;
+    private javax.swing.JButton lvlTiga;
+    private javax.swing.JButton lvlTujuh;
+    private javax.swing.JLabel pemisah;
     // End of variables declaration//GEN-END:variables
 }
