@@ -16,6 +16,9 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
         private Game game;
               private boolean isAnsweredCorrectly = false; 
         
+        
+                
+              
         public TebakGambarJFrame() {
         initComponents();
     }
@@ -29,17 +32,41 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        ImagePanel = new javax.swing.JPanel();
+        jLabel2 = new javax.swing.JLabel();
         Answer = new javax.swing.JTextField();
         Submit = new javax.swing.JButton();
         NextQuestion = new javax.swing.JButton();
         BackToHome = new javax.swing.JButton();
         ScorePlayer = new javax.swing.JLabel();
-        ImagePanel = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 102, 102));
+
+        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel2.setText("Gambar");
+
+        javax.swing.GroupLayout ImagePanelLayout = new javax.swing.GroupLayout(ImagePanel);
+        ImagePanel.setLayout(ImagePanelLayout);
+        ImagePanelLayout.setHorizontalGroup(
+            ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 322, Short.MAX_VALUE)
+            .addGroup(ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ImagePanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
+        ImagePanelLayout.setVerticalGroup(
+            ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 203, Short.MAX_VALUE)
+            .addGroup(ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(ImagePanelLayout.createSequentialGroup()
+                    .addContainerGap()
+                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
+                    .addContainerGap()))
+        );
 
         Answer.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Answer.addActionListener(new java.awt.event.ActionListener() {
@@ -72,20 +99,6 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
         ScorePlayer.setFont(new java.awt.Font("Showcard Gothic", 0, 12)); // NOI18N
         ScorePlayer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         ScorePlayer.setText("Skor");
-
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Gambar");
-
-        javax.swing.GroupLayout ImagePanelLayout = new javax.swing.GroupLayout(ImagePanel);
-        ImagePanel.setLayout(ImagePanelLayout);
-        ImagePanelLayout.setHorizontalGroup(
-            ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        ImagePanelLayout.setVerticalGroup(
-            ImagePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 203, Short.MAX_VALUE)
-        );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -189,7 +202,7 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
             Question q = game.getCurrentQuestion();
 
             // Untuk Gambar
-            String path = q.getImagePath(); // Misalnya: "src/assets/gambar/soal1.png"
+            String path = "gambar1.jpg"; // Misalnya: "src/assets/gambar/soal1.png"
             ImageIcon icon = new ImageIcon(path);
             Image img = icon.getImage().getScaledInstance(jLabel2.getWidth(), jLabel2.getHeight(), Image.SCALE_SMOOTH);
             jLabel2.setIcon(new ImageIcon(img));
@@ -210,7 +223,7 @@ public class TebakGambarJFrame extends javax.swing.JFrame {
         this.game = game;
         tampilkanSoal();  // setelah game di-set, langsung tampilkan soal pertama
     }
-
+    
 
     /**
      * @param args the command line arguments

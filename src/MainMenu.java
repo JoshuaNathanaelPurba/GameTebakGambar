@@ -42,9 +42,9 @@ public class MainMenu extends JFrame {
                 Player player = new Player("Guest");
                 Game game = new Game(player);
 
-                TebakGambarJFrame frame = new TebakGambarJFrame();
-                frame.setGame(game);  // Panggil setter, bukan constructor khusus
-                frame.setVisible(true);
+                PageLevel levelPage = new PageLevel();
+                levelPage.setGame(game);  
+                levelPage.setVisible(true);
 
                 dispose(); // Tutup main menu
             }
