@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
@@ -11,19 +14,28 @@ public class Game {
     private Player player;
     private QuestionBank questionBank;
     private int currentIndex;
+    private int currentLevel;
 
     public Game(Player player) {
         this.player = player;
         this.questionBank = new QuestionBank();
         this.currentIndex = 0;
+        this.currentLevel = 1;
     }
 
     public Question getCurrentQuestion() {
-        return questionBank.getQuestion(currentIndex);
+        if (currentIndex < questionBank.totalQuestions()) {
+            return questionBank.getQuestion(currentIndex);
+        }
+        return null;
     }
 
-    public boolean checkAnswer(String userAnswer) {
-        return userAnswer.equalsIgnoreCase(getCurrentQuestion().getAnswer());
+    public boolean checkAnswer(String Answer) {
+        Question current = getCurrentQuestion();
+        if(current != null){
+            return Answer.trim().equalsIgnoreCase(current.getAnswer().trim());
+        }
+        return false;
     }
 
     public void nextQuestion() {
@@ -37,53 +49,21 @@ public class Game {
     public Player getPlayer() {
         return player;
     }
-}
-
-// Tidak public → boleh disimpan dalam file yang sama
-class Player {
-    private String name;
-    private int score;
-
-    public Player(String name) {
-        this.name = name;
-        this.score = 0;
+    
+    public int getCurrentLevel(){
+        return currentLevel;
     }
-
-    public String getName() { return name; }
-    public int getScore() { return score; }
-    public void incrementScore() { score++; }
-}
-
-class Question {
-    private String imagePath;
-    private String answer;
-
-    public Question(String imagePath, String answer) {
-        this.imagePath = imagePath;
-        this.answer = answer;
+    
+    public int getCurrentIndex(){
+        return currentIndex;
     }
-
-    public String getImagePath() { return imagePath; }
-    public String getAnswer() { return answer; }
-}
-
-class QuestionBank {
-    private java.util.List<Question> questions;
-
-    public QuestionBank() {
-        questions = new java.util.ArrayList<>();
-        questions.add(new Question("src/Soal1.jpeg", "radiasi matahari"));
-        questions.add(new Question("src/Soal2.jpeg", "panjang umur"));
-        questions.add(new Question("src/Soal3.jpeg", "keramik lantai"));
-        questions.add(new Question("src/Soal4.jpeg", "meniti waktu"));
-        questions.add(new Question("src/Soal5.jpeg", "hitung persentase"));
+    
+    public void setCurrentLevel(int level){
+        this.currentLevel = level;
+        this.currentIndex = (level - 1) * questionBank.getQuestionPerLevel();
     }
-
-    public Question getQuestion(int index) {
-        return questions.get(index);
-    }
-
-    public int totalQuestions() {
-        return questions.size();
+    
+    public boolean hasNextQuestion(){
+        return currentIndex + 1 < questionBank.totalQuestions();
     }
 }
